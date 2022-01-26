@@ -36,6 +36,69 @@ def printMap():
         print()
     print()
 
+def x_axis(nb_y, nb_i):
+    score = 1
+    for i in range(1, 5):
+        if nb_i + i > 19:
+            return score
+        if Map[nb_y][nb_i + i] == "X":
+            score += 1
+    return score
+
+def y_axis(nb_y, nb_i):
+    score = 1
+    for i in range(1, 5):
+        if nb_y + i > 19:
+            return score
+        if Map[nb_y + i][nb_i] == "X":
+            score += 1
+    return score
+
+def diagOne(nb_y, nb_i):
+    score = 1
+    for i in range(1, 5):
+        if nb_y + i > 19:
+            return score
+        if Map[nb_y + i][nb_i + i] == "X":
+            score += 1
+    return score
+
+def diagTwo(nb_y, nb_i):
+    score = 1
+    for i in range(1, 5):
+        if nb_y + i > 19:
+            return score
+        if Map[nb_y + i][nb_i - i] == "X":
+            score += 1
+    return score
+
+def checkWin(nb_y, nb_i, find):
+    score = 1
+    if find == "X":
+        if x_axis(nb_y, nb_i) == 5:
+            return 5
+        if y_axis(nb_y, nb_i) == 5:
+            return 5
+        if diagOne(nb_y, nb_i) == 5:
+            return 5
+        if diagTwo(nb_y, nb_i) == 5:
+            return 5
+    return score
+
+
+def isWin():
+    nb_y = 0
+    nb_i = 0
+    for y in range(0, 20):
+        for i in range(0, 20):
+#            if Map[y][i] == "X":
+            if checkWin(y, i, Map[y][i]) == 5:
+                print("FINI")
+                return 1
+            nb_i += 1
+        nb_y += 1
+    return 0
+
 def gomoku():
     global Map
     while(1):
@@ -43,10 +106,13 @@ def gomoku():
         u_input = input()
         if not u_input[1:].isnumeric() and u_input[0].isnumeric():
             exit(84)
-        pos_y = ord(u_input[0])-65
+        pos_y = ord(u_input[0]) - 65
         pos_x = int(u_input[1:]) - 1
         print(pos_x, pos_y)
         Map[pos_x][pos_y] = "X"
+        if isWin():
+            printMap()
+            exit(0)
 
 def main():
     help()
