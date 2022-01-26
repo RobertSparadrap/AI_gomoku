@@ -20,7 +20,6 @@ def help():
             exit(0)
 
 def printMap():
-    global Map
     print(end="\t")
     for i in range(1, 21):
         print(chr(i + 64), end="\t")
@@ -37,10 +36,21 @@ def printMap():
         print()
     print()
 
+def gomoku():
+    global Map
+    while(1):
+        printMap()
+        u_input = input()
+        if not u_input[1:].isnumeric() and u_input[0].isnumeric():
+            exit(84)
+        pos_y = ord(u_input[0])-65
+        pos_x = int(u_input[1:]) - 1
+        print(pos_x, pos_y)
+        Map[pos_x][pos_y] = "X"
 
 def main():
     help()
-    printMap()
+    gomoku()
 
 
 if __name__ == "__main__":
