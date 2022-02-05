@@ -7,7 +7,7 @@ def check(parsedInput):
     return 0
 
 def run(Gboard):
-    print(gb.create(19))
+    print(gb.create(gb.gameBoard_size))
 
 def BoardCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:

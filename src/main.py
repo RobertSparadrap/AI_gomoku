@@ -1,7 +1,7 @@
 import sys
 
 import GameBoard as gb
-#import src.commands.Start
+import Start as start
 #import src.commands.Turn
 #import src.commands.Begin
 import Board as board
@@ -11,7 +11,7 @@ import About as about
 #import src.utils.Log
 
 COMMANDS = {
-#            'START': StartCmd,
+            'START': start.StartCmd,
 #            'TURN': TurnCmd,
 #            'BEGIN': BeginCmd,
             'BOARD': board.BoardCmd,
@@ -22,7 +22,7 @@ COMMANDS = {
 
 def startParse(pars_inpt):
     if pars_inpt[0] in COMMANDS:
-        COMMANDS[pars_inpt[0]](pars_inpt, gb.create(19))
+        COMMANDS[pars_inpt[0]](pars_inpt, gb.create(gb.gameBoard_size))
     else:
         print("Error Command")
         exit(84)
@@ -34,7 +34,7 @@ def game():
             pars_inpt = ['UNKNOWN']
         else:
             pars_inpt = line.strip().split(" ")
-        print(pars_inpt)
+#        print(pars_inpt)
         startParse(pars_inpt)
 
 def main():
