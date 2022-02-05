@@ -15,6 +15,7 @@ def check(parsedInput):
 
 def run(parsedInput):
     gb.gameBoard_size = int(parsedInput)
+    print("Ok")
 
 def StartCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:

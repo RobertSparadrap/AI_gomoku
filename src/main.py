@@ -5,17 +5,16 @@ import Start as start
 #import src.commands.Turn
 #import src.commands.Begin
 import Board as board
-#import src.commands.Info
+import Info as info
 import EndProg as end
 import About as about
-#import src.utils.Log
 
 COMMANDS = {
             'START': start.StartCmd,
 #            'TURN': TurnCmd,
 #            'BEGIN': BeginCmd,
             'BOARD': board.BoardCmd,
-#            'INFO': InfoCmd,
+            'INFO': info.InfoCmd,
             'END': end.EndCmd,
             'ABOUT': about.AboutCmd
         }
