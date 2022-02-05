@@ -4,28 +4,26 @@ import GameBoard as gb
 #import src.commands.Start
 #import src.commands.Turn
 #import src.commands.Begin
-#import src.commands.Board
+import Board as board
 #import src.commands.Info
-#import src.commands.End
-from About import *
+import EndProg as end
+import About as about
 #import src.utils.Log
 
 COMMANDS = {
 #            'START': StartCmd,
 #            'TURN': TurnCmd,
 #            'BEGIN': BeginCmd,
-#            'BOARD': BoardCmd,
+            'BOARD': board.BoardCmd,
 #            'INFO': InfoCmd,
-#            'END': EndCmd,
-            'ABOUT': AboutCmd
+            'END': end.EndCmd,
+            'ABOUT': about.AboutCmd
         }
-#gameBoard = gb.GameBoard(19)
 
-def start(pars_inpt):
-    try:
-        print(gb.create(19))
+def startParse(pars_inpt):
+    if pars_inpt[0] in COMMANDS:
         COMMANDS[pars_inpt[0]](pars_inpt, gb.create(19))
-    except:
+    else:
         print("Error Command")
         exit(84)
 
@@ -37,7 +35,7 @@ def game():
         else:
             pars_inpt = line.strip().split(" ")
         print(pars_inpt)
-        start(pars_inpt)
+        startParse(pars_inpt)
 
 def main():
     game()
