@@ -34,19 +34,6 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(NAME).exe
 
-TESTS_SRC	=	$(TESTS)t_About.py		\
-				$(TESTS)t_Begin.py		\
-				$(TESTS)t_Board.py		\
-				$(TESTS)t_End.py		\
-				$(TESTS)t_Info.py		\
-				$(TESTS)t_Log.py		\
-				$(TESTS)t_Start.py		\
-				$(TESTS)t_tools.py		\
-
-tests_run: fclean
-	$(PRINT) "\nLET'S TEST:\n"
-	@python3 -m pytest -v $(TESTS_SRC) --cov=$(SOURCES) --cov-report=html
-
 re: fclean all
 
 .PHONY: all clean fclean tests_run re
