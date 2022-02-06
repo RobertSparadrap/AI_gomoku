@@ -2,7 +2,7 @@ import sys
 
 import GameBoard as gb
 import Start as start
-#import src.commands.Turn
+import Turn as turn
 import Begin as begin
 import Board as board
 import Info as info
@@ -11,7 +11,7 @@ import About as about
 
 COMMANDS = {
             'START': start.StartCmd,
-#            'TURN': TurnCmd,
+            'TURN': turn.TurnCmd,
             'BEGIN': begin.BeginCmd,
             'BOARD': board.BoardCmd,
             'INFO': info.InfoCmd,
@@ -21,7 +21,6 @@ COMMANDS = {
 
 def startParse(pars_inpt):
     if pars_inpt[0] in COMMANDS:
-#        COMMANDS[pars_inpt[0]](pars_inpt, gb.create(gb.gameBoard_size))
         COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
     else:
         print("Error Command")
