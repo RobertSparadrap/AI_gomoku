@@ -13,3 +13,5 @@ gameBoard_size = 19
 
 def create(size):
     return [[0 for _ in range(size)] for _ in range(size)]
+
+map = create(gameBoard_size)

@@ -15,6 +15,7 @@ def check(parsedInput):
 
 def run(parsedInput):
     gb.gameBoard_size = int(parsedInput)
+    gb.map = gb.create(gb.gameBoard_size)
     print("Ok")
 
 def StartCmd(parsedInput, Gboard):
