@@ -1,6 +1,7 @@
 import GameBoard as gb
 import Def as d
 import Check as c
+import IA as ia
 
 def check(parsedInput):
     if c.checkFun(parsedInput, 3) == 84:
@@ -17,11 +18,12 @@ def check(parsedInput):
         return 84
     return 0
 
-def run(parsedInput):
+def run(parsedInput, Gboard):
     x = int(parsedInput[1])
     y = int(parsedInput[2])
     gb.map[x][y] = d.OPPONENT
+    x_ia, y_ia = ia.run(Gboard)
 
 def TurnCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:
-        run(parsedInput)
+        run(parsedInput, Gboard)
