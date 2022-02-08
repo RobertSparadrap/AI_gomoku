@@ -1,14 +1,9 @@
 import GameBoard as gb
-
-def check(parsedInput):
-    if len(parsedInput) != 1:
-        print("ERROR Board command - No arguments expected.")
-        return 84
-    return 0
+import Check as c
 
 def run(Gboard):
     print(gb.map)
 
 def BoardCmd(parsedInput, Gboard):
-    if check(parsedInput) != 84:
+    if c.checkFun(parsedInput, 1) != 84:
         run(Gboard)

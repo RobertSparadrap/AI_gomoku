@@ -1,9 +1,9 @@
 import GameBoard as gb
 import Def as d
+import Check as c
 
 def check(parsedInput):
-    if len(parsedInput) != 3:
-        print("ERROR, Turn command - Invalid arguments.")
+    if c.checkFun(parsedInput, 3) == 84:
         return 84
     try:
         x = int(parsedInput[1])

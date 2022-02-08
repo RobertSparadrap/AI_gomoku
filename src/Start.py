@@ -1,8 +1,8 @@
 import GameBoard as gb
+import Check as c
 
 def check(parsedInput):
-    if len(parsedInput) != 2:
-        print("ERROR Start command - Invalid arguments.")
+    if c.checkFun(parsedInput, 2) == 84:
         return 84
     try:
         int(parsedInput[1])
