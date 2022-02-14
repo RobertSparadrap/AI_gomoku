@@ -20,8 +20,7 @@ import Node as n
 
 def run(map):
     depth = 1
-    n.run(map)
-    print(n.board)
+    n.run(map, depth, d.BRAIN)
     return 0, 0
 #    tree = Tree(map, depth, d.BRAIN)
 #    x, y, _ = minimax(map, depth, tree._root, d.BRAIN)

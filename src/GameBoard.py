@@ -1,3 +1,5 @@
+import Def as d
+
 settings = {
             'timeout_turn': 0,
             'timeout_match': 0,
@@ -22,3 +24,13 @@ def copy(map):
         for j in range(0, len(cp)):
             cp[i][j] = map[i][j]
     return cp
+
+def checkAround(x, y):
+    for dir in d.VECTOR:
+        nx = x + dir[d.X]
+        ny = y + dir[d.Y]
+        if nx not in range(gameBoard_size) or ny not in range(gameBoard_size):
+            continue
+        if map[nx][ny] is not d.EMPTY:
+            return True
+    return False
