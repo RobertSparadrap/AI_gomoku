@@ -7,7 +7,7 @@ coordonee = [-1, -1, 0]
 board = None
 child = []
 
-def evalDir():
+def evalDir(direction, coord, player):
     return 0
 
 def ev(i, j, player):
@@ -15,10 +15,10 @@ def ev(i, j, player):
         return inf
     if win.isWin(board, d.OPPONENT):
         return 10000000000
-    ev_SN = evalDir(board, [d.SOUTH, d.NORTH], [i, j], player)
-    ev_EW = evalDir(board, [d.EAST, d.WEST], [i, j], player)
-    ev_NWS = evalDir(board, [d.NORTHWEST, d.SOUTHEAST], [i, j], player)
-    ev_NES = evalDir(board, [d.NORTHEAST, d.SOUTHWEST], [i, j], player)
+    ev_SN = evalDir([d.SOUTH, d.NORTH], [i, j], player)
+    ev_EW = evalDir([d.EAST, d.WEST], [i, j], player)
+    ev_NWS = evalDir([d.NORTHWEST, d.SOUTHEAST], [i, j], player)
+    ev_NES = evalDir([d.NORTHEAST, d.SOUTHWEST], [i, j], player)
     eval = [ev_SN, ev_EW, ev_NWS, ev_NES]
     transpose = list(map(list, zip(*eval)))
     return max(max(res for res in transpose))
