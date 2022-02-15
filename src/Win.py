@@ -21,7 +21,7 @@ def y_axis(nb_y, nb_i, map, player):
 def diagOne(nb_y, nb_i, map, player):
     score = 1
     for i in range(1, 5):
-        if nb_y + i > gb.gameBoard_size - 1:
+        if nb_y + i > gb.gameBoard_size - 1 or nb_i + i > gb.gameBoard_size - 1:
             return score
         if map[nb_y + i][nb_i + i] == player:
             score += 1

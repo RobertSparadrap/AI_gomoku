@@ -1,18 +1,76 @@
 import GameBoard as gb
 import Def as d
 import Win as win
-from math import inf
+#from math import inf
 
 coordonee = [-1, -1, 0]
 board = None
 child = []
 
+def computeMaximizeWeights(next, maximize, res, player):
+    if maximize:
+        if maximize and next is player:
+            res[0] += 10
+        else:
+            maximize = False
+        return maximize, res
+    else:
+        enemy = d.BRAIN if player is d.OPPONENT else d.OPPONENT
+        if not maximize and next is enemy:
+            res[1] += 10
+        else:
+            maximize = True
+    return maximize, res
+
+def give_coods(coord, i, dir):
+    nx = coord[d.X] + (d.GETVECTOR(dir)[d.X] * i)
+    ny = coord[d.Y] + (d.GETVECTOR(dir)[d.Y] * i)
+    if nx not in range(gb.gameBoard_size) or ny not in range(gb.gameBoard_size):
+        return -1000, -1000
+    return nx, ny
+
+def strikes(direction, coord, enemy, res, nb):
+    for dir in direction:
+        for i in range(1, d.RANGE+1):
+            nx, ny = give_coods(coord, i, dir)
+            if nx == ny == -1000:
+                continue
+            if gb.map[nx][ny] is enemy:
+                break
+            elif gb.map[nx][ny] is d.EMPTY:
+                res[nb] += 1
+                break
+    return res
+
+def addStrikes(direction, coord, player, res):
+    enemy = d.BRAIN if player is d.OPPONENT else d.OPPONENT
+    res = strikes(direction, coord, enemy, res, 0)
+    res = strikes(direction, coord, player, res, 1)
+    return res
+
+
+
+def evalDirWeights(direction, res, coord, player, m):
+    for dir in direction:
+        maxi = m
+        for i in range(1, d.RANGE+1):
+            nx, ny = give_coods(coord, i, dir)
+            if nx == ny == -1000:
+                continue
+            maxi, res = computeMaximizeWeights(gb.map[nx][ny], maxi, res, player)
+    return res
+
+
 def evalDir(direction, coord, player):
-    return 0
+    res = [10, 10]
+    res = evalDirWeights(direction, res, coord, player, True)
+    res = evalDirWeights(direction, res, coord, player, False)
+    res = addStrikes(direction, coord, player, res)
+    return res
 
 def ev(i, j, player):
     if win.isWin(board, d.BRAIN):
-        return inf
+        return 0
     if win.isWin(board, d.OPPONENT):
         return 10000000000
     ev_SN = evalDir([d.SOUTH, d.NORTH], [i, j], player)
