@@ -1,4 +1,6 @@
-import Def as d
+#!/usr/bin/env python3
+
+import src.Def as d
 
 settings = {
             'timeout_turn': 0,

@@ -1,5 +1,7 @@
-import Def as d
-import Node as n
+#!/usr/bin/env python3
+
+import src.Def as d
+import src.Node as n
 
 #def minimax(gameBoard, depth, node, player):
 #    if depth == 0 or len(node._children) == 0:

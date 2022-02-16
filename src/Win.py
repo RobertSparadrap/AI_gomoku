@@ -1,4 +1,6 @@
-import GameBoard as gb
+#!/usr/bin/env python3
+
+import src.GameBoard as gb
 
 def x_axis(nb_y, nb_i, map, player):
     score = 1

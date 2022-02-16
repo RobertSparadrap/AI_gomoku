@@ -1,6 +1,8 @@
-import GameBoard as gb
-import Def as d
-import Win as win
+#!/usr/bin/env python3
+
+import src.GameBoard as gb
+import src.Def as d
+import src.Win as win
 #from math import inf
 
 coordonee = [-1, -1, 0]
@@ -69,9 +71,9 @@ def evalDir(direction, coord, player):
     return res
 
 def ev(i, j, player):
-    if win.isWin(board, d.BRAIN):
+    if win.isWin(gb.map, d.BRAIN):
         return 0
-    if win.isWin(board, d.OPPONENT):
+    if win.isWin(gb.map, d.OPPONENT):
         return 10000000000
     ev_SN = evalDir([d.SOUTH, d.NORTH], [i, j], player)
     ev_EW = evalDir([d.EAST, d.WEST], [i, j], player)

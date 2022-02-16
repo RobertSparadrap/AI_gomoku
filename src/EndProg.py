@@ -1,4 +1,6 @@
-import Check as c
+#!/usr/bin/env python3
+
+import src.Check as c
 
 def check(parsedInput):
     if len(parsedInput) != 1:

@@ -1,5 +1,7 @@
-import GameBoard as gb
-import Check as c
+#!/usr/bin/env python3
+
+import src.GameBoard as gb
+import src.Check as c
 
 def check(parsedInput, settings):
     if c.checkFun(parsedInput, 3) == 84:

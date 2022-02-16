@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # POINTS
 X = 0
 Y = 1

@@ -1,13 +1,14 @@
+#!/usr/bin/env python3
 import sys
 
-import GameBoard as gb
-import Start as start
-import Turn as turn
-import Begin as begin
-import Board as board
-import Info as info
-import EndProg as end
-import About as about
+import src.GameBoard as gb
+import src.Start as start
+import src.Turn as turn
+import src.Begin as begin
+import src.Board as board
+import src.Info as info
+import src.EndProg as end
+import src.About as about
 
 COMMANDS = {
             'START': start.StartCmd,

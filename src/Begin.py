@@ -1,6 +1,8 @@
-import GameBoard as gb
-import Def as d
-import Check as c
+#!/usr/bin/env python3
+
+import src.GameBoard as gb
+import src.Def as d
+import src.Check as c
 
 def run(Gboard):
     x = int(gb.gameBoard_size/2)

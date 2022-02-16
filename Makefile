@@ -3,8 +3,7 @@ NAME 	=	pbrain-gomoku-ai
 RM 		=	@rm -f
 PRINT	=	@echo -e
 
-SOURCES		=	sources/
-TESTS		=	tests/
+SOURCES		=	src/
 
 $(NAME):
 	@cp $(SOURCES)main.py $@
@@ -20,14 +19,9 @@ exe:
 
 clean:
 	$(PRINT) "\n------->\tREMOVE PYCACHE\n"
-	$(RM) -r __pycache__ $(SOURCES)__pycache__ $(SOURCES)commands/__pycache__ $(SOURCES)utils/__pycache__ deps/__pycache__ $(SOURCES)algorithm/__pycache__
+	$(RM) -r __pycache__ $(SOURCES)__pycache__
 	$(PRINT) "\n------->\tREMOVE BUILD TMP FILES\n"
-	$(RM) -r dist build *.spec
-	$(PRINT) "\n------->\tREMOVE PYTEST FILES\n"
-	$(RM) -r $(TESTS)__pycache__
-	$(RM) .coverage
-	$(RM) -r htmlcov
-	$(RM) -r .pytest_cache
+	$(RM) -r *.pyc $(SOURCES)*.pyc
 
 fclean: clean
 	$(PRINT) "\n------->\tREMOVE BINARY\n"
