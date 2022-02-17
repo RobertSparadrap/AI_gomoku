@@ -25,7 +25,6 @@ def startParse(pars_inpt):
         COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
     else:
         print("Error Command")
-        exit(84)
 
 def game():
     while(1):

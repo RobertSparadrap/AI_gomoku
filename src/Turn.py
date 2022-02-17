@@ -25,6 +25,8 @@ def run(parsedInput, Gboard):
     y = int(parsedInput[2])
     gb.map[x][y] = d.OPPONENT
     x_ia, y_ia = ia.run(Gboard)
+    print(x_ia, y_ia)
+    gb.map[x_ia][y_ia] = d.BRAIN
 
 def TurnCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:

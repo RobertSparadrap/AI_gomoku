@@ -3,9 +3,7 @@
 import src.GameBoard as gb
 import src.Def as d
 import src.Win as win
-#from math import inf
 
-coordonee = [-1, -1, 0]
 board = None
 child = []
 
@@ -25,8 +23,8 @@ def computeMaximizeWeights(next, maximize, res, player):
     return maximize, res
 
 def give_coods(coord, i, dir):
-    nx = coord[d.X] + (d.GETVECTOR(dir)[d.X] * i)
-    ny = coord[d.Y] + (d.GETVECTOR(dir)[d.Y] * i)
+    nx = coord[d.X] + (d.GETVECTOR(dir)[0] * i)
+    ny = coord[d.Y] + (d.GETVECTOR(dir)[1] * i)
     if nx not in range(gb.gameBoard_size) or ny not in range(gb.gameBoard_size):
         return -1000, -1000
     return nx, ny
@@ -83,7 +81,8 @@ def ev(i, j, player):
     transpose = list(map(list, zip(*eval)))
     return max(max(res for res in transpose))
 
-def loop(board, depth, player):
+def loop(board, depth, player, ch=None):
+    global child
     if depth == 0:
         return
     for i in range(len(board)):
@@ -91,8 +90,9 @@ def loop(board, depth, player):
             if board[i][j] is d.EMPTY:
                 board[i][j] = player
                 score = ev(i, j, player)
+                child.append([board, i, j, score])
                 nextPlayer = d.BRAIN if player is d.OPPONENT else d.OPPONENT
-                loop(board, depth-1, nextPlayer)
+                loop(board, depth-1, nextPlayer, child[-1])
                 board[i][j] = d.EMPTY
 
 def run(Gboard, depth, player):
