@@ -20,14 +20,17 @@ def check(parsedInput):
         return 84
     return 0
 
-def run(parsedInput, Gboard):
+def runPlayer(parsedInput, Gboard):
     x = int(parsedInput[1])
     y = int(parsedInput[2])
     gb.map[x][y] = d.OPPONENT
+
+def runAI(Gboard):
     x_ia, y_ia = ia.run(Gboard)
     print(x_ia, y_ia)
     gb.map[x_ia][y_ia] = d.BRAIN
 
 def TurnCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:
-        run(parsedInput, Gboard)
+        runPlayer(parsedInput, Gboard)
+        runAI(Gboard)

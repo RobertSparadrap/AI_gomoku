@@ -11,11 +11,8 @@ def check(parsedInput, settings):
         return 84
     return 0
 
-def run(parsedInput):
-    key = parsedInput[1]
-    value = parsedInput[2]
-    gb.settings[key] = int(value)
-
 def InfoCmd(parsedInput, Gboard):
     if check(parsedInput, gb.settings) != 84:
-        run(parsedInput)
+        key = parsedInput[1]
+        value = parsedInput[2]
+        gb.settings[key] = int(value)

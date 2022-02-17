@@ -15,11 +15,8 @@ def check(parsedInput):
         return 84
     return 0
 
-def run(parsedInput, Gboard):
-    gb.gameBoard_size = int(parsedInput)
-    gb.map = gb.create(gb.gameBoard_size)
-    print("Ok")
-
 def StartCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:
-        run(parsedInput[1], Gboard)
+        gb.gameBoard_size = int(parsedInput[1])
+        gb.map = gb.create(gb.gameBoard_size)
+        print("Ok")

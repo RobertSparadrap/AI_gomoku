@@ -8,10 +8,7 @@ def check(parsedInput):
         return 84
     return 0
 
-def run():
-    print("Programme ended")
-    exit(0)
-
 def EndCmd(parsedInput, unused):
     if c.checkFun(parsedInput, 1) != 84:
-        run()
+        print("Programme ended")
+        exit(0)

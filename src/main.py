@@ -20,23 +20,20 @@ COMMANDS = {
             'ABOUT': about.AboutCmd
         }
 
-def startParse(pars_inpt):
-    if pars_inpt[0] in COMMANDS:
-        COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
-    else:
-        print("Error Command")
-
-def game():
+def startParse():
     while(1):
         line = sys.stdin.readline()
         if line == '':
             pars_inpt = ['UNKNOWN']
         else:
             pars_inpt = line.strip().split(" ")
-        startParse(pars_inpt)
+        if pars_inpt[0] in COMMANDS:
+            COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
+        else:
+            print("Error Command")
 
 def main():
-    game()
+    startParse()
 
 if __name__ == "__main__":
 	main()
