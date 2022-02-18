@@ -1,18 +1,9 @@
 #!/usr/bin/env python3
 
-# POINTS
-X = 0
-Y = 1
-SCORE = 2
-
 # CELL TYPES
 EMPTY = 0
 BRAIN = 1
 OPPONENT = 2
-
-# MOVE TYPES
-ATTACK = 0
-DEFENSE = 1
 
 # DIRECTIONS
 NORTH = 0
@@ -34,8 +25,6 @@ VECTOR = [
     [0, -1],    # WEST
     [-1, -1]    # NORTHWEST
 ]
-
-RANGE = 4
 
 def GETVECTOR(direction):
     return VECTOR[direction]

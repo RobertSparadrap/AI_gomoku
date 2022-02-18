@@ -29,8 +29,8 @@ def copy(map):
 
 def checkAround(x, y):
     for dir in d.VECTOR:
-        nx = x + dir[d.X]
-        ny = y + dir[d.Y]
+        nx = x + dir[0]
+        ny = y + dir[1]
         if nx not in range(gameBoard_size) or ny not in range(gameBoard_size):
             continue
         if map[nx][ny] is not d.EMPTY:

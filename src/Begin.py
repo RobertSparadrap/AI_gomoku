@@ -7,7 +7,7 @@ import src.Check as c
 def run(Gboard):
     x = int(gb.gameBoard_size/2)
     y = int(gb.gameBoard_size/2)
-    print(x, y)
+    print("%d,%d" %(x, y))
     gb.map[x][y] = d.BRAIN
 
 def BeginCmd(parsedInput, Gboard):

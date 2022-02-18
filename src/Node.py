@@ -23,15 +23,15 @@ def computeMaximizeWeights(next, maximize, res, player):
     return maximize, res
 
 def give_coods(coord, i, dir):
-    nx = coord[d.X] + (d.GETVECTOR(dir)[0] * i)
-    ny = coord[d.Y] + (d.GETVECTOR(dir)[1] * i)
+    nx = coord[0] + (d.GETVECTOR(dir)[0] * i)
+    ny = coord[1] + (d.GETVECTOR(dir)[1] * i)
     if nx not in range(gb.gameBoard_size) or ny not in range(gb.gameBoard_size):
         return -1000, -1000
     return nx, ny
 
 def strikes(direction, coord, enemy, res, nb):
     for dir in direction:
-        for i in range(1, d.RANGE+1):
+        for i in range(1, 5):
             nx, ny = give_coods(coord, i, dir)
             if nx == ny == -1000:
                 continue
@@ -53,7 +53,7 @@ def addStrikes(direction, coord, player, res):
 def evalDirWeights(direction, res, coord, player, m):
     for dir in direction:
         maxi = m
-        for i in range(1, d.RANGE+1):
+        for i in range(1, 5):
             nx, ny = give_coods(coord, i, dir)
             if nx == ny == -1000:
                 continue
