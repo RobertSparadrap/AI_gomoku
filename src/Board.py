@@ -14,10 +14,10 @@ def BoardCmd(parsedInput, Gboard):
             else:
                 pars_inpt = line.strip().split(",")
             try:
-                pars_inpt[0] = int(pars_inpt[0])
-                pars_inpt[1] = int(pars_inpt[1])
+                pars_inpt[0] = int(pars_inpt[0]) - 1
+                pars_inpt[1] = int(pars_inpt[1]) - 1
                 pars_inpt[2] = int(pars_inpt[2])
-                print(pars_inpt[2])
+#                print(pars_inpt[2])
             except:
                 if pars_inpt[0] == "DONE":
                     play.runAI(gb.map)

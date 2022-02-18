@@ -9,8 +9,8 @@ def check(parsedInput):
     if c.checkFun(parsedInput, 2) == 84:
         return 84
     try:
-        x = int(parsedInput[0])
-        y = int(parsedInput[1])
+        x = int(parsedInput[0]) - 1
+        y = int(parsedInput[1]) - 1
     except:
         print("ERROR, Turn command - Invalid size.")
         return 84
@@ -21,14 +21,14 @@ def check(parsedInput):
     return 0
 
 def runPlayer(parsedInput, Gboard):
-    x = int(parsedInput[0])
-    y = int(parsedInput[1])
+    x = int(parsedInput[0]) - 1
+    y = int(parsedInput[1]) - 1
     gb.map[x][y] = d.OPPONENT
 
 def runAI(Gboard):
     x_ia, y_ia = ia.run(Gboard)
     print("The brain answers:")
-    print("%d,%d" %(x_ia, y_ia))
+    print("%d,%d" %(x_ia + 1, y_ia + 1))
     gb.map[x_ia][y_ia] = d.BRAIN
 
 def TurnCmd(parsedInput, Gboard):
