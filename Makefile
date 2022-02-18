@@ -1,7 +1,7 @@
 NAME 	=	pbrain-gomoku-ai
 
 RM 		=	@rm -f
-PRINT	=	@echo -e
+PRINT	=	@echo
 
 SOURCES		=	src/
 
