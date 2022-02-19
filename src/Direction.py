@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 
-# CELL TYPES
-EMPTY = 0
-BRAIN = 1
-OPPONENT = 2
-
-# DIRECTIONS
 NORTH = 0
 NORTHEAST = 1
 EAST = 2
@@ -15,7 +9,7 @@ SOUTHWEST = 5
 WEST = 6
 NORTHWEST = 7
 
-VECTOR = [
+DIRECTION = [
     [-1, 0],    # NORTH
     [-1, 1],    # NORTHEAST
     [0, 1],     # EAST
@@ -25,9 +19,3 @@ VECTOR = [
     [0, -1],    # WEST
     [-1, -1]    # NORTHWEST
 ]
-
-def GETVECTOR(direction):
-    return VECTOR[direction]
-    
-def NEXTPLAYER(player):
-    return BRAIN if player is OPPONENT else OPPONENT

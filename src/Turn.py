@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import src.GameBoard as gb
-import src.Def as d
+import src.Direction as d
 import src.Check as c
 import src.IA as ia
 
@@ -23,13 +23,13 @@ def check(parsedInput):
 def runPlayer(parsedInput, Gboard):
     x = int(parsedInput[0]) - 1
     y = int(parsedInput[1]) - 1
-    gb.map[x][y] = d.OPPONENT
+    gb.map[x][y] = 2
 
 def runAI(Gboard):
     x_ia, y_ia = ia.run(Gboard)
     print("The brain answers:")
     print("%d,%d" %(x_ia + 1, y_ia + 1))
-    gb.map[x_ia][y_ia] = d.BRAIN
+    gb.map[x_ia][y_ia] = 1
 
 def TurnCmd(parsedInput, Gboard):
     parsedInput = parsedInput[1:]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import src.Def as d
+import src.Direction as d
 
 settings = {
             'timeout_turn': 0,
@@ -28,7 +28,7 @@ def copy(map):
     return cp
 
 def checkAround(x, y):
-    for dir in d.VECTOR:
+    for dir in d.DIRECTION:
         nx = x + dir[0]
         ny = y + dir[1]
         if nx not in range(gameBoard_size) or ny not in range(gameBoard_size):
