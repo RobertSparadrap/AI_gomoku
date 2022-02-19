@@ -8,7 +8,8 @@ import sys
 def BoardCmd(parsedInput, Gboard):
     if c.checkFun(parsedInput, 1) != 84:
         while 1:
-            line = sys.stdin.readline()
+            line = input()
+#            line = sys.stdin.readline()
             if line == '':
                 pars_inpt = ['UNKNOWN']
             else:
