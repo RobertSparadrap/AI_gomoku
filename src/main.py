@@ -21,11 +21,11 @@ COMMANDS = {
         }
 
 def startParse():
-    while(1):
+    line = ""
+    while(line != "END"):
 #        line = sys.stdin.readline()
-        try:
-            line = input()
-        except:
+        line = input()
+        if not line:
             break
         if line == '':
             pars_inpt = ['UNKNOWN']

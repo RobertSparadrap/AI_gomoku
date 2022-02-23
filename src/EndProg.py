@@ -11,4 +11,4 @@ def check(parsedInput):
 def EndCmd(parsedInput, unused):
     if c.checkFun(parsedInput, 1) != 84:
         print("Programme ended")
-        exit(0)
+#        exit(0)
