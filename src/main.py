@@ -23,7 +23,10 @@ COMMANDS = {
 def startParse():
     while(1):
 #        line = sys.stdin.readline()
-        line = input()
+        try:
+            line = input()
+        except:
+            break
         if line == '':
             pars_inpt = ['UNKNOWN']
         else:
