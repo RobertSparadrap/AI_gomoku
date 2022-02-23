@@ -39,8 +39,8 @@ def startParse():
 def main():
     startParse()
 
-try:
-    if __name__ == "__main__":
-	    main()
-except:
-    exit(84)
+#try:
+if __name__ == "__main__":
+	 main()
+#except:
+#    exit(84)
