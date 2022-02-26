@@ -24,7 +24,12 @@ def startParse():
     line = ""
     while(line != "END"):
 #        line = sys.stdin.readline()
-        line = input()
+        try:
+            line = input()
+        except:
+            exit(0)
+#        if not line:
+#            break
         if not line:
             break
         if line == '':

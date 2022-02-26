@@ -9,6 +9,7 @@ def run(Gboard):
     y = int(gb.gameBoard_size/2)
     print("%d,%d" %(x + 1, y + 1))
     gb.map[x][y] = 1
+#    print(gb.map)
 
 def BeginCmd(parsedInput, Gboard):
     if c.checkFun(parsedInput, 1) != 84:
