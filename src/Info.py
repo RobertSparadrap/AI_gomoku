@@ -7,7 +7,7 @@ def check(parsedInput, settings):
     if c.checkFun(parsedInput, 3) == 84:
         return 84
     if parsedInput[1] not in settings.keys():
-        print("ERROR, Info command - Invalid key.")
+        print("ERROR, Info command - Invalid key.", flush=True)
         return 84
     return 0
 

@@ -11,7 +11,7 @@ def check(parsedInput):
     except:
         return 84
     if int(parsedInput[1]) < 5:
-        print("ERROR Start command - Invalid size.")
+        print("ERROR Start command - Invalid size.", flush=True)
         return 84
     return 0
 
@@ -19,4 +19,4 @@ def StartCmd(parsedInput, Gboard):
     if check(parsedInput) != 84:
         gb.gameBoard_size = int(parsedInput[1])
         gb.map = gb.create(gb.gameBoard_size)
-        print("Ok")
+        print("Ok", flush=True)

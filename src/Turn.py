@@ -12,7 +12,7 @@ def check(parsedInput):
         x = int(parsedInput[0]) - 1
         y = int(parsedInput[1]) - 1
     except:
-        print("ERROR, Turn command - Invalid size.")
+        print("ERROR, Turn command - Invalid size.", flush=True)
         return 84
     if x not in range(gb.gameBoard_size) or y not in range(gb.gameBoard_size):
         return 84
@@ -27,8 +27,8 @@ def runPlayer(parsedInput, Gboard):
 
 def runAI(Gboard):
     x_ia, y_ia = ia.run(Gboard)
-    print("The brain answers:")
-    print("%d,%d" %(x_ia + 1, y_ia + 1))
+    print("The brain answers:", flush=True)
+    print("%d,%d" %(x_ia + 1, y_ia + 1), flush=True)
     gb.map[x_ia][y_ia] = 1
 
 def TurnCmd(parsedInput, Gboard):

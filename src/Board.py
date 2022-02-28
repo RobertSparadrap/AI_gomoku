@@ -27,5 +27,5 @@ def BoardCmd(parsedInput, Gboard):
             if pars_inpt[2] == 1 or pars_inpt[2] == 2:
                 gb.map[pars_inpt[0]][pars_inpt[1]] = pars_inpt[2]
             else:
-                print("ERROR")
+                print("ERROR", flush=True)
 #        print(gb.map)

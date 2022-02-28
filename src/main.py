@@ -39,7 +39,7 @@ def startParse():
         if pars_inpt[0] in COMMANDS:
             COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
         else:
-            print("Error Command")
+            print("Error Command", flush=True)
 
 def main():
     startParse()
