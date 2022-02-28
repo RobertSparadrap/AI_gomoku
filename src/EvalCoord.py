@@ -9,14 +9,14 @@ def GETVECTOR(direction):
 
 def computeMaximizeWeights(next, maximize, res, player):
     if maximize:
-        if maximize and next is player:
+        if maximize == player and next == player:
             res[0] += 10
         else:
             maximize = False
         return maximize, res
     else:
-        enemy = 1 if player is 2 else 2
-        if not maximize and next is enemy:
+        enemy = 1 if player == 2 else 2
+        if not maximize and next == enemy:
             res[1] += 10
         else:
             maximize = True
@@ -35,15 +35,15 @@ def strikes(direction, coord, enemy, res, nb):
             nx, ny = give_coods(coord, i, dir)
             if nx == ny == -1000:
                 continue
-            if gb.map[nx][ny] is enemy:
+            if gb.map[nx][ny] == enemy:
                 break
-            elif gb.map[nx][ny] is 0:
+            elif gb.map[nx][ny] == 0:
                 res[nb] += 1
                 break
     return res
 
 def addStrikes(direction, coord, player, res):
-    enemy = 1 if player is 2 else 2
+    enemy = 1 if player == 2 else 2
     res = strikes(direction, coord, enemy, res, 0)
     res = strikes(direction, coord, player, res, 1)
     return res

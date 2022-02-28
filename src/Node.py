@@ -15,11 +15,11 @@ def loop(board, depth, player, ch=None):
         return
     for i in range(len(board)):
         for j in range(len(board)):
-            if board[i][j] is 0:
+            if board[i][j] == 0:
                 board[i][j] = player
                 score = eval.ev(i, j, player)
                 child.append([board, i, j, score])
-                nextPlayer = 1 if player is 2 else 2
+                nextPlayer = 1 if player == 2 else 2
                 loop(board, depth-1, nextPlayer, child[-1])
                 board[i][j] = 0
 

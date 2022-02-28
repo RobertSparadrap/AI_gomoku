@@ -33,6 +33,6 @@ def checkAround(x, y):
         ny = y + dir[1]
         if nx not in range(gameBoard_size) or ny not in range(gameBoard_size):
             continue
-        if map[nx][ny] is not d.EMPTY:
+        if map[nx][ny] != d.EMPTY:
             return True
     return False
