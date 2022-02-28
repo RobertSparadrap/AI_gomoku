@@ -2,6 +2,7 @@
 
 import src.Direction as d
 import src.Node as n
+import src.GameBoard as gb
 
 def NEXTPLAYER(player):
     return 1 if player == 2 else 2
@@ -13,7 +14,9 @@ def minimax(gameBoard, depth, cc, player):
     for c in cc:
         move = minimax(gameBoard, depth-1, c, NEXTPLAYER(player))
         if (player == 1 and move[2] > bestMove[2]) or (player != 1 and move[2] < bestMove[2]):
-            bestMove = move
+            if gb.map[move[0]][move[1]] == 0:
+                bestMove = move
+            print(gb.map[move[0]][move[1]])
     return bestMove
 
 def run(map):

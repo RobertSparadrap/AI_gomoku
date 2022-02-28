@@ -20,6 +20,23 @@ COMMANDS = {
             'ABOUT': about.AboutCmd
         }
 
+def printMap():
+    print(end=" ")
+    for i in range(1, 21):
+        print(chr(i + 64), end= " ")
+    print()
+    for i in range(165):
+        print("_", end="")
+    print()
+    j = 0
+    for i in range(20):
+        j = 0
+        print("%d|\t" %(i), end="")
+        for j in range(20):
+            print(gb.map[i][j], end=" ")
+        print()
+    print()
+
 def startParse():
     line = ""
     while(line != "END"):
@@ -38,6 +55,7 @@ def startParse():
             pars_inpt = line.strip().split(" ")
         if pars_inpt[0] in COMMANDS:
             COMMANDS[pars_inpt[0]](pars_inpt, gb.map)
+#            printMap()
         else:
             print("Error Command", flush=True)
 
