@@ -27,7 +27,7 @@ def runPlayer(parsedInput, Gboard):
 
 def runAI(Gboard):
     x_ia, y_ia = ia.run(Gboard)
-    print("The brain answers:", flush=True)
+#    print("The brain answers:", flush=True)
     print("%d,%d" %(x_ia + 1, y_ia + 1), flush=True)
     gb.map[x_ia][y_ia] = 1
 
